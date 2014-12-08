@@ -14,7 +14,6 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
-  "strict": true,
   "trailing": true,
   "undef": true,
   "unused": true,

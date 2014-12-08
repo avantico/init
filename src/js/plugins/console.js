@@ -1,7 +1,6 @@
 // Enhance console.log / console.warn output in browsers and avoid errors
 // in browsers that lack a console.
-(function() {
-  'use strict';
+export function console () {
 
   // Avoid `console` errors in browsers that lack a console.
   var method;
@@ -14,7 +13,7 @@
     'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
   ];
   var length = methods.length;
-  var console = (window.console = window.console || {});
+  var _console = (window.console = window.console || {});
 
   var methodFunction = function (old) {
     return function () {
@@ -28,7 +27,7 @@
 
       args = [].slice.apply(arguments).concat([stack[1].trim()]);
 
-      return old.apply(console, args);
+      return old.apply(_console, args);
     };
   };
 
@@ -36,12 +35,12 @@
     method = methods[length];
 
     // Only stub undefined methods.
-    if (!console[method]) {
-      console[method] = noop;
+    if (!_console[method]) {
+      _console[method] = noop;
     }
 
     if (Array.prototype.indexOf && methodsToEnhance.indexOf(method) > -1) {
-      console[method] = methodFunction(console[method]);
+      _console[method] = methodFunction(_console[method]);
     }
   }
-}());
+}

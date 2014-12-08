@@ -4,30 +4,23 @@
  * @author Author name
  * @date 2013-08-18
  */
+// Dependencies of the module
+import $ from '../../../node_modules/jquery/dist/jquery.js';
 
-define([
-  // Dependencies of the module
-  'jquery'
-], function ($) {
+// Private variables
+var _eventName = '_test';
 
-  // Strict mode to prevent sloppy JS
-  'use strict';
-
-  // Private variables
-  var _eventName = '_test';
+export function module () {
 
   // Public API
-  return {
 
-    // Getter for private variable
-    getEventName: function () {
-      return _eventName;
-    },
-
-    // File an event on initialisation
-    init: function () {
-      $(document).trigger(_eventName);
-    }
+  // Getter for private variable
+  this.getEventName = function () {
+    return _eventName;
   };
 
-});
+  // File an event on initialisation
+  this.init = function () {
+    $(document).trigger(_eventName);
+  };
+}

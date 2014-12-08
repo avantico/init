@@ -22,11 +22,9 @@ var getIncludeFiles = function () {
   });
 
   // Add own JS files
-  projectConfig.js.files.forEach(function (element) {
-    files.push({
-      pattern: element,
-      included: false
-    });
+  files.push({
+    pattern: projectConfig.js.devFiles,
+    included: false
   });
 
   // Add tests

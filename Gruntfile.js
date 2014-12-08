@@ -11,6 +11,9 @@ var loadGruntConfig = require('./grunt/load-grunt-config');
  */
 module.exports = function (grunt) {
 
+  // Make Grunt globally available
+  process.grunt = grunt;
+
   // Measure time of grunt tasks
   require('time-grunt')(grunt);
 
@@ -29,7 +32,9 @@ module.exports = function (grunt) {
   grunt.initConfig(config);
 
   // Load all npm tasks through jit-grunt (all tasks from node_modules)
-  require('jit-grunt')(grunt);
+  require('jit-grunt')(grunt, {
+    transpile: 'grunt-es6-module-transpiler'
+  });
 
   // Load your own tasks
   grunt.task.loadTasks('./grunt/tasks');

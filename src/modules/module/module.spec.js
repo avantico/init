@@ -3,30 +3,33 @@
  * Loads the module and runs the test suite
  * Module path is relative to the current path
  */
-define(['./module'], function (module) {
-  'use strict';
+'use strict';
 
-  // Test suite INIT
-  describe('INIT', function () {
+import Module from './module';
 
-    it('is available', function () {
-      expect(module).not.toBe(null);
+// Test suite INIT
+describe('INIT', function () {
+  var module = new Module();
+
+  console.log(module);
+
+  it('is available', function () {
+    expect(module).not.toBe(null);
+  });
+
+  it('has getter for event name', function () {
+    expect(module.getEventName()).toBe('_test');
+  });
+
+  it('fires event on init', function () {
+    var eventCalled;
+
+    $(document).on(module.getEventName(), function () {
+      eventCalled = true;
     });
 
-    it('has getter for event name', function () {
-      expect(module.getEventName()).toBe('_test');
-    });
+    module.init();
 
-    it('fires event on init', function () {
-      var eventCalled;
-
-      $(document).on(module.getEventName(), function () {
-        eventCalled = true;
-      });
-
-      module.init();
-
-      expect(eventCalled).toBeTruthy();
-    });
+    expect(eventCalled).toBeTruthy();
   });
 });

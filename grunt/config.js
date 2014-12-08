@@ -28,10 +28,11 @@ module.exports = {
   // JavaScript files
   js: {
     files: [
-      'src/js/**/*.js',
-      'src/modules/**/*.js'
+      'js/**/*.js',
+      'modules/**/*.js'
     ],
-    config: 'src/js/config.js',
+    devDest: 'src/dist/',
+    devFiles: 'src/dist/**/*.js',
     dest: 'dist/<%= pkg.version %>/main.min.js',
     libs: [
       'node_modules/grunt-modernizr/lib/modernizr-dev.js',
@@ -70,7 +71,7 @@ module.exports = {
   },
 
   tests: {
-    src: 'src/modules/**/*spec.js',
+    src: 'dist/src/modules/**/*spec.js',
     config: 'test/test-main.js',
     coverage: 'test/coverage/'
   },
