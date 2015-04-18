@@ -1,5 +1,5 @@
 /**
- * Sass
+ * Less
  */
 'use strict';
 
@@ -10,11 +10,11 @@ var config = require('../config');
  */
 var helper = {};
 
-helper.sassDev = {};
-helper.sassDev[config.sass.devDest] = config.sass.src;
+helper.lessDev = {};
+helper.lessDev[config.less.devDest] = config.less.src;
 
-helper.sassProd = {};
-helper.sassProd[config.sass.dest] = config.sass.src;
+helper.lessProd = {};
+helper.lessProd[config.less.dest] = config.less.src;
 
 module.exports = {
 
@@ -25,7 +25,7 @@ module.exports = {
 			style: 'expanded'
 		},
 
-		files: helper.sassDev
+		files: helper.lessDev
 	},
 
 	// For production
@@ -35,6 +35,6 @@ module.exports = {
 			banner: config.banner
 		},
 
-		files: helper.sassProd
+		files: helper.lessProd
 	}
 };
