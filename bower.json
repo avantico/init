@@ -5,7 +5,7 @@
   "ignore": [],
   "dependencies": {
     "jquery": "1.11.1",
-    "normalize-less": "0.0.2",
+    "normalize.less": "1.0.0",
     "modernizr": "2.8.3",
     "requirejs": "2.1.15",
     "lesshat": "3.0.2"
