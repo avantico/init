@@ -6,9 +6,9 @@
 var config = require('../config');
 
 module.exports = {
-	scss: {
-		files: config.sass.files,
-		tasks: 'sass:dev'
+	less: {
+		files: config.less.files,
+		tasks: 'less:dev'
 	},
 
 	js: {

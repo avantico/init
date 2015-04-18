@@ -65,7 +65,7 @@ module.exports = function (grunt) {
 	 */
 	grunt.registerTask('dev', [
 		'jshint',
-		'sass:dev',
+		'less:dev',
 		'copy',
 		'requirejs',
 		'pages:dev'
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', [
 		'jshint',
 		'modernizr',
-		'sass:build',
+		'less:build',
 		'imagemin',
 		'copy',
 		'requirejs',
